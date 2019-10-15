@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+::selection
+{
+	background: rgb(199, 190, 232);
+	color: rgb(65, 65, 65);
+}
+
+p#esend {
+	font-family: 'NanumSquare', sans-serif;
+	font-size: 14pt;
+	color: rgb(77, 36, 151);
+	font-weight: bold;
+}
+
+div#erecipient {
+	font-size: 11pt;
+	margin: 0 10px 0 6px;
+	color: rgb(77, 36, 151);
+	display: inline;
+}
+
+div#etitle {
+	font-size: 11pt; margin : 0 37px 0 6px;
+	color: rgb(77, 36, 151);
+	display: inline;
+	margin: 0 37px 0 6px;
+}
+
+.filebox label {
+	
+	display: inline-block;
+	padding: .5em .75em;
+	color: #4d2497;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fff;
+	cursor: pointer;
+	border: 1px solid #4d2497;
+	height: 35px;
+}
+
+.filebox label:hover{
+	background-color : #4d2497;
+	color: #fff;
+}
+
+
+.filebox input[type="file"] { /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+input:focus {
+	outline: 1px solid #4d2497;
+}
