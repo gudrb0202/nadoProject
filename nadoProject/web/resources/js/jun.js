@@ -121,7 +121,7 @@ $("#loginForm").validate({
 			rules : {
 				emp_name : {
 					required : true,
-					name_check : ture
+					name_check : true
 				},
 				user_id : {
 					required : true	
