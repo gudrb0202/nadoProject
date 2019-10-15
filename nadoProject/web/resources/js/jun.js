@@ -77,6 +77,16 @@ $("#loginForm").validate({
 			}
 		});
 		
+		$.validator.addMethod("name_check", function(value, element) {
+			//이름 정규표현식
+			var name_ch = /^[가-힣]{2,10}$/;
+
+			if (name_ch.test(value))
+				return true;
+			else 
+				return false;		
+		});
+		
 		$.validator.addMethod("emp_no_check", function(value, element) {
 			//주민등록번호 정규표현식
 			var emp_no_ch = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))[1-4][0-9]{6}$/;
@@ -110,7 +120,8 @@ $("#loginForm").validate({
 		$("#enrollForm").validate({
 			rules : {
 				emp_name : {
-					required : true
+					required : true,
+					name_check : ture
 				},
 				user_id : {
 					required : true	
@@ -141,10 +152,11 @@ $("#loginForm").validate({
 			},
 			messages : {
 				emp_name : {
-					required : "이름을 입력하세요."
+					required : "이름을 입력하세요.",
+					name_check : "2~10자 이내로 입력하세요."
 				},
 				user_id : {
-					required : "필수 입력"	
+					required : "필수 입력 항목입니다."	
 				},
 				user_pwd : {
 					required : "비밀번호를 입력하세요.",
