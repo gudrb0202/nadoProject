@@ -42,12 +42,11 @@ $("#loginForm").validate({
 						}
 					});
 		}
-
 		$("#user_id").blur(function(){
 			var id_check = /^\w{5,20}$/;
 			var user_id = $(this).val();
 			if(!id_check.test(user_id)){
-				$("#idAlertBox").html("<small id='id1'>5~20자의 영문 소문자, 숫자와 특수기호 '_'만 사용 가능합니다.</small>").css("color", "darkred");
+				$("#idAlertBox").html("<small class='id1'>5~20자의 영문 소문자, 숫자와 특수기호 '_'만 사용 가능합니다.</small>").css("color", "darkred");
 			}else{
 				$.ajax({
 					url : "/nado/empich",
@@ -55,11 +54,9 @@ $("#loginForm").validate({
 					data : {id : user_id},
 					success : function(result){
 						if(result >0){
-							$("#idAlertBox").html("<small>이미 사용중인 아이디입니다.</small>").css("color", "darkred");
-							console.log(result);
+							$("#idAlertBox").html("<small>이미 사용중인 아이디입니다.</small>").css("color", "darkred");							
 						}else{						
 							$("#idAlertBox").html("<small>아이디 생성 성공!</small>").css("color", "green");
-							console.log(result);
 						}
 					}
 				
@@ -148,6 +145,9 @@ $("#loginForm").validate({
 				},
 				address : {
 					required : true
+				},
+				detailAddress : {
+					required : true
 				}
 			},
 			messages : {
@@ -177,7 +177,10 @@ $("#loginForm").validate({
 					required : "결혼여부를 체크하세요."
 				},
 				address : {
-					required : "주소를 입력하세요."
+					required : "우편번호 찾기를 클릭하세요."
+				},
+				detailAddress : {
+					required : "상세주소를 입력하세요."
 				}
 			},
 				submitHandler : employeeForm
@@ -249,3 +252,5 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+
+
